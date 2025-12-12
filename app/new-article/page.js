@@ -2,14 +2,14 @@ import { redirect } from 'next/navigation';
 import { Suspense } from 'react';
 import { getCurrentUser } from '@/lib/auth';
 import Sidebar from '@/components/Sidebar/index';
-import NewThreadForm from './NewThreadForm';
+import NewArticleForm from './NewArticleForm';
 
 export const metadata = {
     title: 'Create Article - Knowledge Base',
     description: 'Create a new knowledge base article',
 };
 
-export default async function NewThreadPage({ searchParams }) {
+export default async function NewArticlePage({ searchParams }) {
     // Authenticate server-side to prevent race conditions with cookies
     const forumUser = await getCurrentUser();
     
@@ -28,7 +28,7 @@ export default async function NewThreadPage({ searchParams }) {
         <div className="flex flex-no-wrap">
             <Sidebar data={forumUser} />
             <Suspense fallback={<div className="w-full p-6">Loading...</div>}>
-                <NewThreadForm forumUser={forumUser} initialTitle={initialTitle} />
+                <NewArticleForm forumUser={forumUser} initialTitle={initialTitle} />
             </Suspense>
         </div>
     );

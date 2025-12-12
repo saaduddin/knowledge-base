@@ -57,7 +57,7 @@ export default function HomeContent({ forumUser, initialArticles, comments, curr
                                             <Link
                                                 className="bg-blue-700 text-sm text-white rounded hover:bg-blue-600 transition duration-150 ease-in-out py-2 px-6 sm:mt-0 mt-4"
                                                 href={{
-                                                    pathname: forumUser ? '/new-thread' : '/login',
+                                                    pathname: forumUser ? '/new-article' : '/login',
                                                     query: title && { title },
                                                 }}
                                             >

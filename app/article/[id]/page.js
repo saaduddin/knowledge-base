@@ -2,7 +2,7 @@ import Sidebar from '@/components/Sidebar/index';
 import { getCurrentUser } from '@/lib/auth';
 import { forumsApi } from '@/lib/forumsApi';
 import { notFound } from 'next/navigation';
-import ArticleContent from './ThreadContent';
+import ArticleContent from './ArticleContent';
 
 export async function generateMetadata({ params }) {
     const { id } = params;
@@ -19,7 +19,7 @@ export async function generateMetadata({ params }) {
     }
 }
 
-export default async function ThreadPage({ params }) {
+export default async function ArticlePage({ params }) {
     const { id } = params;
     const forumUser = await getCurrentUser();
     
