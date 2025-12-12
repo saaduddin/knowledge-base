@@ -15,14 +15,6 @@ export default function LoginPage() {
 
     const router = useRouter();
 
-    // Check if user is already logged in
-    useEffect(() => {
-        const token = Cookies.get('forumUserToken');
-        if (token) {
-            router.push('/');
-        }
-    }, [router]);
-
     const loginCommon = async (login, password) => {
         try {
             const data = await clientApi.auth.login(login, password);
