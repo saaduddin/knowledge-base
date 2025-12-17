@@ -35,19 +35,18 @@ export function ArticleCard({ thread }: { thread: Article }) {
   const likesCount = thread.likes?.filter((l) => !l.dislike).length || 0
 
   return (
-    <Card className="hover:border-primary/50 transition-colors">
+    <Link
+                href={`/article/${thread.id}`}>
+                <Card className="hover:border-primary/50 transition-colors">
       <CardHeader className="pb-3">
         <div className="flex items-start justify-between gap-3">
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 mb-2">
               {thread.pinned && <Pin className="h-4 w-4 text-primary" />}
               {thread.locked && <Lock className="h-4 w-4 text-muted-foreground" />}
-              <Link
-                href={`/article/${thread.id}`}
-                className="text-lg font-semibold hover:text-primary transition-colors"
-              >
+              <h3 className="text-lg font-semibold">
                 {thread.title}
-              </Link>
+              </h3>
             </div>
             <p className="text-sm text-muted-foreground line-clamp-2">{thread.body}</p>
           </div>
@@ -93,5 +92,6 @@ export function ArticleCard({ thread }: { thread: Article }) {
         </div>
       </CardFooter>
     </Card>
+    </Link>
   )
 }
