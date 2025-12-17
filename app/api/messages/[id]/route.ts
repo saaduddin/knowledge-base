@@ -27,7 +27,7 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
     const data = await response.json()
     return NextResponse.json(data)
   } catch (error) {
-    console.error("[v0] Get message error:", error)
+    console.error("Get message error:", error)
     return NextResponse.json({ error: "Internal server error" }, { status: 500 })
   }
 }
@@ -57,7 +57,7 @@ export async function DELETE(request: NextRequest, { params }: { params: Promise
     const data = await response.json()
     return NextResponse.json(data)
   } catch (error) {
-    console.error("[v0] Delete message error:", error)
+    console.error("Delete message error:", error)
     return NextResponse.json({ error: "Internal server error" }, { status: 500 })
   }
 }

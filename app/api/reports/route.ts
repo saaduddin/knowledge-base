@@ -26,7 +26,7 @@ export async function GET(request: NextRequest) {
     const data = await response.json()
     return NextResponse.json(data)
   } catch (error) {
-    console.error("[v0] Reports API error:", error)
+    console.error("Reports API error:", error)
     return NextResponse.json({ error: "Internal server error" }, { status: 500 })
   }
 }
@@ -59,7 +59,7 @@ export async function POST(request: NextRequest) {
     const data = await response.json()
     return NextResponse.json(data)
   } catch (error) {
-    console.error("[v0] Create report error:", error)
+    console.error("Create report error:", error)
     return NextResponse.json({ error: "Internal server error" }, { status: 500 })
   }
 }

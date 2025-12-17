@@ -29,14 +29,14 @@ export async function GET(request: NextRequest) {
         error = await response.text()
       }
 
-      console.error("[v0] Messages API error:", response.status, error)
+      console.error("Messages API error:", response.status, error)
       return NextResponse.json({ error: "Failed to fetch messages", details: error }, { status: response.status })
     }
 
     const data = await response.json()
     return NextResponse.json(data)
   } catch (error) {
-    console.error("[v0] Messages API error:", error)
+    console.error("Messages API error:", error)
     return NextResponse.json({ error: "Internal server error", details: String(error) }, { status: 500 })
   }
 }
@@ -77,7 +77,7 @@ export async function POST(request: NextRequest) {
     const data = await response.json()
     return NextResponse.json(data)
   } catch (error) {
-    console.error("[v0] Send message error:", error)
+    console.error("Send message error:", error)
     return NextResponse.json({ error: "Internal server error", details: String(error) }, { status: 500 })
   }
 }

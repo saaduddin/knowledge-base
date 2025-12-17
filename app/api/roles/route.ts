@@ -26,7 +26,7 @@ export async function GET(request: NextRequest) {
     const data = await response.json()
     return NextResponse.json(data)
   } catch (error) {
-    console.error("[v0] Roles API error:", error)
+    console.error("Roles API error:", error)
     return NextResponse.json({ error: "Internal server error" }, { status: 500 })
   }
 }
@@ -59,7 +59,7 @@ export async function POST(request: NextRequest) {
     const data = await response.json()
     return NextResponse.json(data)
   } catch (error) {
-    console.error("[v0] Create role error:", error)
+    console.error("Create role error:", error)
     return NextResponse.json({ error: "Internal server error" }, { status: 500 })
   }
 }

@@ -18,14 +18,14 @@ export async function POST(request: NextRequest) {
 
     if (!res.ok) {
       const error = await res.text()
-      console.error("[v0] Login API error:", res.status, error)
+      console.error("Login API error:", res.status, error)
       return NextResponse.json({ error: "Login failed", details: error }, { status: res.status })
     }
 
     const data = await res.json()
     return NextResponse.json(data)
   } catch (error) {
-    console.error("[v0] Login API exception:", error)
+    console.error("Login API exception:", error)
     return NextResponse.json({ error: "Login failed", details: String(error) }, { status: 500 })
   }
 }

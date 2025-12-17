@@ -26,7 +26,7 @@ export async function GET(request: NextRequest) {
     const data = await response.json()
     return NextResponse.json(data)
   } catch (error) {
-    console.error("[v0] Notifications API error:", error)
+    console.error("Notifications API error:", error)
     return NextResponse.json({ error: "Internal server error" }, { status: 500 })
   }
 }

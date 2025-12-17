@@ -28,7 +28,7 @@ export async function PUT(request: NextRequest, { params }: { params: Promise<{ 
     const data = await response.json()
     return NextResponse.json(data)
   } catch (error) {
-    console.error("[v0] Mark notification read error:", error)
+    console.error("Mark notification read error:", error)
     return NextResponse.json({ error: "Internal server error" }, { status: 500 })
   }
 }

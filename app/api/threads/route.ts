@@ -33,14 +33,14 @@ export async function GET(request: NextRequest) {
 
     if (!res.ok) {
       const error = await res.text()
-      console.error("[v0] Articles API error:", res.status, error)
+      console.error("Articles API error:", res.status, error)
       return NextResponse.json({ error: "Failed to fetch articles", details: error }, { status: res.status })
     }
 
     const data = await res.json()
     return NextResponse.json(data)
   } catch (error) {
-    console.error("[v0] Articles API exception:", error)
+    console.error("Articles API exception:", error)
     return NextResponse.json({ error: "Failed to fetch articles", details: String(error) }, { status: 500 })
   }
 }
