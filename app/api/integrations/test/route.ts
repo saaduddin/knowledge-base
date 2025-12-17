@@ -1,0 +1,30 @@
+import { type NextRequest, NextResponse } from "next/server"
+
+const API_BASE = process.env.FORU_MS_API_URL
+const API_KEY = process.env.FORU_MS_API_KEY
+
+export async function POST(request: NextRequest) {
+  try {
+    const token = request.headers.get("Authorization")?.replace("Bearer ", "")
+    const body = await request.json()
+
+    if (!token) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
+    }
+
+    const response = await fetch(`${API_BASE}/integrations/test`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": API_KEY!,
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(body),
+    })
+
+    const data = await response.json()
+    return NextResponse.json(data, { status: response.status })
+  } catch (error) {
+    return NextResponse.json({ error: "Failed to test integration" }, { status: 500 })
+  }
+}
